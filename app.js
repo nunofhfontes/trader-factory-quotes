@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var quotesRouter = require('./routes/quote.route'); // Imports routes 
 
 var app = express();
 
@@ -25,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Loading the severall routers here, treat each url in the proper router
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/quotes', quotesRouter);
 
 
 // catch 404 and forward to error handler
