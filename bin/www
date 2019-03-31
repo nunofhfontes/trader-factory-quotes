@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+console.log("Main File -> www");
+
 /**
  * Module dependencies.
  */
