@@ -5,7 +5,7 @@ console.log("Main File -> www");
 /**
  * Module dependencies.
  */
-
+var db = require('../db/datasource');
 var app = require('../app');
 var debug = require('debug')('trader-factory-quotes:server');
 var http = require('http');
