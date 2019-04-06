@@ -1,0 +1,59 @@
+{
+    "info1": "info",
+    "info2": "info",
+    "info3": "info",
+    "stockInfo": {
+        "years": [
+            {
+                "2016": {
+                    "months": [
+                        "1": {
+                            "month": "january",
+                            "days": {
+                                "1": {
+                                    "info1": "info",
+                                    "info2": "info",
+                                    "info3": "info",
+                                    "info4": "info",
+                                    "info5": "info",
+                                    "info6": "info",
+                                    "info7": "info"
+                                },
+                                "2": {
+                                    "info1": "info",
+                                    "info2": "info",
+                                    "info3": "info",
+                                    "info4": "info",
+                                    "info5": "info",
+                                    "info6": "info",
+                                    "info7": "info"
+                                },
+                                "30": {
+                                    "info1": "info",
+                                    "info2": "info",
+                                    "info3": "info",
+                                    "info4": "info",
+                                    "info5": "info",
+                                    "info6": "info",
+                                    "info7": "info"
+                                }
+                            }
+                        },
+                        "2": {
+                            "month": "february",
+                            "1": {}
+                        }
+                    ]
+                },
+                "2017": {
+                    "month": {
+                        "january": 1
+                    },
+                    "type": "Number",
+                    "max": 2012,
+                    "validate": "validateBookYear"
+                }
+            }
+        ]
+    }
+}
