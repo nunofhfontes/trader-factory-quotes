@@ -6,7 +6,7 @@
         "years": [
             {
                 "2016": {
-                    "months": [
+                    "months": [{
                         "1": {
                             "month": "january",
                             "days": {
@@ -43,7 +43,7 @@
                             "month": "february",
                             "1": {}
                         }
-                    ]
+                    }]
                 },
                 "2017": {
                     "month": {
