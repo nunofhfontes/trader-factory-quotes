@@ -1,28 +1,32 @@
 {
-    "name": "MSFT",
-    "symbol": "symbol",
-    "lastUpdate": "2017-04-05 11:30",
-    "info": {
-        "years": [
-            {
-                "year": "2016",
-                "months": [
+    "equity": [
+        {
+            "name": "Microsoft",
+            "symbol": "MSFT",
+            "lastUpdate": "2017-04-05 11:30",
+            "info": {
+                "years": [
                     {
-                        "month": "1",
-                        "days": [
+                        "year": "2016",
+                        "months": [
                             {
-                                "day": "1",
-                                "hours": [
+                                "month": "1",
+                                "days": [
                                     {
-                                        "hour": "9",
-                                        "minutes": [
+                                        "day": "1",
+                                        "hours": [
                                             {
-                                                "minute": "00",
-                                                "open": "119.3550",
-                                                "high": "119.3700",
-                                                "low": "119.1400",
-                                                "close": "119.1800",
-                                                "volume": "496249"
+                                                "hour": "9",
+                                                "minutes": [
+                                                    {
+                                                        "minute": "00",
+                                                        "open": "119.3550",
+                                                        "high": "119.3700",
+                                                        "low": "119.1400",
+                                                        "close": "119.1800",
+                                                        "volume": "496249"
+                                                    }
+                                                ]
                                             }
                                         ]
                                     }
@@ -32,6 +36,6 @@
                     }
                 ]
             }
-        ]
-    }
+        }
+    ]
 }
