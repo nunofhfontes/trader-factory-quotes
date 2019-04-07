@@ -17,6 +17,8 @@ function testInsertion() {
     console.log('This is after the read call');
 }
 
-module.exports = function (msg) { 
+exports.testInsertion = function (req, res) { 
     testInsertion();
+    console.log('function exportation');
+    res.send('Testing the DB insertion');
 };
