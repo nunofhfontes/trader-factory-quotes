@@ -45,4 +45,24 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+///////////////////////////////TESTING AREA/////////////////////////////////////////////////////
+/*
+const fs = require('fs');
+
+//let rawdata = fs.readFileSync('./models/example3.json');  
+//let example3 = JSON.parse(rawdata);  
+//console.log(example3);  
+
+console.log('This is before the read call');  
+
+fs.readFile('./models/example3.json', (err, data) => {  
+  if (err) throw err;
+  let example3 = JSON.parse(data);
+  console.log(example3);
+});
+
+console.log('This is after the read call');  
+*/
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 module.exports = app;

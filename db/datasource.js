@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 const server = '127.0.0.1:27017'; // REPLACE WITH YOUR DB SERVER
-const database = 'fcc-Mail';      // REPLACE WITH YOUR DB NAME
+const database = 'quotedb';      // REPLACE WITH YOUR DB NAME
 class Database {
   constructor() {
     this._connect()
