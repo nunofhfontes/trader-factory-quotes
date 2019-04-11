@@ -15,6 +15,9 @@ function testInsertion() {
     });
 
     console.log('This is after the read call');
+
+
+    var User = mongoose.model("User", nameSchema);
 }
 
 exports.testInsertion = function (req, res) { 
