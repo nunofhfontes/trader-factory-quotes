@@ -1,3 +1,11 @@
+
+//TODO - get this from the config file from db folder
+const elasticsearch = require('elasticsearch');
+const esClient = new elasticsearch.Client({
+    host: '127.0.0.1:9200',
+    log: 'error'
+  });
+
 const fs = require('fs');
 const bulkIndex = function bulkIndex(index, type, data) {
 
