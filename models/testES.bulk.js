@@ -1,5 +1,5 @@
 const bulkIndex = function bulkIndex(index, type, data) {
-    
+
     let bulkBody = [];
 
     data.forEach(item => {
@@ -32,6 +32,6 @@ const bulkIndex = function bulkIndex(index, type, data) {
 };
 
 const test = function test() {
-    const articlesRaw = fs.readFileSync('data.json');
+    const articlesRaw = fs.readFileSync('testDateES.json');
     bulkIndex('library', 'article', articles);
 };
