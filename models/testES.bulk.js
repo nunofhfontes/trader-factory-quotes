@@ -1,3 +1,4 @@
+const fs = require('fs');
 const bulkIndex = function bulkIndex(index, type, data) {
 
     let bulkBody = [];
@@ -32,6 +33,9 @@ const bulkIndex = function bulkIndex(index, type, data) {
 };
 
 const test = function test() {
-    const articlesRaw = fs.readFileSync('testDateES.json');
-    bulkIndex('library', 'article', articles);
+    const articlesRaw = fs.readFileSync('testSimpleDataES.json');
+    console.log("adding data");
+    bulkIndex('library', 'article', articlesRaw);
 };
+
+test();
