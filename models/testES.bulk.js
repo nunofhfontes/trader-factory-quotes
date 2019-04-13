@@ -46,4 +46,5 @@ const test = function test() {
     bulkIndex('library', 'article', articlesRaw);
 };
 
+//calling the test function
 test();
