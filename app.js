@@ -49,6 +49,10 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message, data: data });
 });
 
+
+//consider exporting the Database class, instanciate it here, and try { instance.connect() } 
+// db._connect();
+
 //Build a server to intercept requests
 const server = http.createServer(app); 
 server.listen(3000);
