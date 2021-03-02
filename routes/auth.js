@@ -1,3 +1,4 @@
+require("dotenv-safe").config();
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
@@ -11,7 +12,7 @@ module.exports = (req, res, next) => {
   let decodedToken;
   try {
       //Consider using jwt.verify(token, process.env.SECRET -> the .env file
-    decodedToken = jwt.verify(token, 'somesupersecretsecret');
+    decodedToken = jwt.verify(token, process.env.SECRET);
   } catch (err) {
     err.statusCode = 500;
     throw err;
