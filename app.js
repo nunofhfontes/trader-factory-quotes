@@ -9,7 +9,10 @@ let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
-let quotesRouter = require('./routes/quote.route'); // Imports routes 
+let quotesRouter = require('./routes/quote.route'); // Imports routes
+const authRoutes = require('./routes/auth');
+
+var db = require('./db/datasource');
 
 //creating Express app
 const express = require('express');
@@ -39,16 +42,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/quotes', quotesRouter);
+app.use('/auth', authRoutes);
 
 //Centralized error handling - errors inside froutes/controllers will be thrown and caught here
 app.use((error, req, res, next) => {
+  console.log("Centralized error treatment:");
   console.log(error);
   const status = error.statusCode || 500;
   const message = error.message;
   const data = error.data;
   res.status(status).json({ message: message, data: data });
 });
-
 
 //consider exporting the Database class, instanciate it here, and try { instance.connect() } 
 // db._connect();
