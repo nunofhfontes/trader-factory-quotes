@@ -18,4 +18,6 @@ class Database {
        })
   }
 }
+
+//consider exporting the class and not the instance
 module.exports = new Database();
