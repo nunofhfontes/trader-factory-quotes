@@ -1,29 +1,51 @@
-require("dotenv-safe").config();
-const jwt = require('jsonwebtoken');
+const express = require('express');
+const { body } = require('express-validator/check');
 
-module.exports = (req, res, next) => {
-  const authHeader = req.get('Authorization');
-  if (!authHeader) {
-    const error = new Error('Not authenticated.');
-    error.statusCode = 401;
-    throw error;
-  }
-  const token = authHeader.split(' ')[1];
-  let decodedToken;
-  try {
-      //Consider using jwt.verify(token, process.env.SECRET -> the .env file
-    decodedToken = jwt.verify(token, process.env.SECRET);
-  } catch (err) {
-    err.statusCode = 500;
-    throw err;
-  }
-  if (!decodedToken) {
-    const error = new Error('Not authenticated.');
-    error.statusCode = 401;
-    throw error;
-  }
+const User = require('../models/user');
+const authController = require('../controllers/auth.controller');
+const isAuth = require('../middleware/is-auth');
 
-  //if everything goes well, save the id on the request
-  req.userId = decodedToken.userId;
-  next();
-};
+const router = express.Router();
+
+router.put(
+  '/signup',
+  [
+    body('email')
+      .isEmail()
+      .withMessage('Please enter a valid email.')
+      .custom((value, { req }) => {
+        return User.findOne({ email: value }).then(userDoc => {
+          if (userDoc) {
+            return Promise.reject('E-Mail address already exists!');
+          }
+        });
+      })
+      .normalizeEmail(),
+    body('password')
+      .trim()
+      .isLength({ min: 5 }),
+    body('name')
+      .trim()
+      .not()
+      .isEmpty()
+  ],
+  authController.signup
+);
+
+router.post('/login', authController.login);
+
+router.get('/status', isAuth, authController.getUserStatus);
+
+router.patch(
+  '/status',
+  isAuth,
+  [
+    body('status')
+      .trim()
+      .not()
+      .isEmpty()
+  ],
+  authController.updateUserStatus
+);
+
+module.exports = router;
