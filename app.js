@@ -11,6 +11,7 @@ let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let quotesRouter = require('./routes/quote.route'); // Imports routes
 const authRoutes = require('./routes/auth');
+const portfolioRoutes = require('./routes/portfolio');
 
 var db = require('./db/datasource');
 
@@ -43,6 +44,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/quotes', quotesRouter);
 app.use('/auth', authRoutes);
+app.use('/portfolio', portfolioRoutes);
 
 //Centralized error handling - errors inside froutes/controllers will be thrown and caught here
 app.use((error, req, res, next) => {
