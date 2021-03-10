@@ -25,7 +25,8 @@ const portfolioSchema = new Schema({
   securities: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Stock'
+      ref: 'Stock',
+      //--->>>> QUANTITY ?????
     }
   ]
 });
