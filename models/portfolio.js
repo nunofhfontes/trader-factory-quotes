@@ -10,6 +10,11 @@ const portfolioSchema = new Schema({
     type: String,
     required: true
   },
+  //portfolio name
+  name: {
+    type: String,
+    required: true
+  },
   createDate: {
     type: String,
     required: true
@@ -29,6 +34,13 @@ const portfolioSchema = new Schema({
       //--->>>> QUANTITY ?????
     }
   ]
+
+  //type - Stock, ETF, etc etc
+
+  //balance - the portfolio mean
+  //rentability
+
+
 });
 
 module.exports = mongoose.model('Portfolio', portfolioSchema);
