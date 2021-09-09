@@ -44,7 +44,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/quotes', quotesRouter);
 app.use('/auth', authRoutes);
-app.use('/portfolio', portfolioRoutes);
+// app.use('/portfolio', portfolioRoutes);
 
 //Centralized error handling - errors inside froutes/controllers will be thrown and caught here
 app.use((error, req, res, next) => {
