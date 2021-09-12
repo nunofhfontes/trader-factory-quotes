@@ -32,6 +32,7 @@ router.put(
   authController.signup
 );
 
+router.get('/login', authController.login);
 router.post('/login', authController.login);
 
 // router.get('/status', isAuth, authController.getUserStatus);

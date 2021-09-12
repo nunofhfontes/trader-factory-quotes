@@ -41,9 +41,15 @@ exports.login = (req, res, next) => {
 
   const email = req.body.email;
   const password = req.body.password;
+
+  console.log("email: ", email);
+  console.log("password: ", password);
+
   let loadedUser;
   
   /****** MOCK DATA ***************/
+  loadedUser = {_id:123, email: 'nunotest@tesmail.com', password: 'secretpassword'};
+
   const token = jwt.sign(
     {
       email: loadedUser.email,

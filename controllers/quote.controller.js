@@ -7,7 +7,7 @@ var stockQuotesFunction = "";
 var sotckQuotesSymbol = "";
 var stockQuotesApiUrl = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&outputsize=compact&apikey=1OT6J4YHUI0QOWB3";
 
-let testRequest2API = true;
+let testRequest2API = false;
 
 //Simple version, without validation or sanitation
 exports.test = function (req, res) {
