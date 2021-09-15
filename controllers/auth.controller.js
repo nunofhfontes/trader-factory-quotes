@@ -38,6 +38,7 @@ exports.signup = (req, res, next) => {
 
 exports.login = (req, res, next) => {
   
+  console.log("req.body --> ", req.body);
 
   const email = req.body.email;
   const password = req.body.password;
@@ -48,7 +49,13 @@ exports.login = (req, res, next) => {
   let loadedUser;
   
   /****** MOCK DATA ***************/
-  loadedUser = {_id:123, email: 'nunotest@tesmail.com', password: 'secretpassword'};
+
+  if(!email || !password) {
+    console.log("No user and password sent, setting mock data instead!!!");
+    loadedUser = {_id:123, email: 'nunotest@tesmail.com', password: 'secretpassword'};
+  } else {
+    loadedUser = {_id:123, email: email, password: password};
+  }
 
   const token = jwt.sign(
     {
