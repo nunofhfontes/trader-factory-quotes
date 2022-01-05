@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator/check');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { v4: uuidv4 } = require('uuid');
 
 const User = require('../models/user');
 
@@ -60,7 +61,11 @@ exports.login = (req, res, next) => {
   const token = jwt.sign(
     {
       email: loadedUser.email,
-      userId: loadedUser._id.toString()
+      userId: loadedUser._id.toString(),
+      // added some properties to make the token unique in each session
+      "iat": Date.now(),
+      "exp": new Date(Date.now() + 10*60*1000), // 10 mins
+      "jti": uuidv4() //"3F2504E0-4F89-11D3-9A0C-0305E82C3301"
     },
     'somesupersecretsecret',
     { expiresIn: '1h' }
