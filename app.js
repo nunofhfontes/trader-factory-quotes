@@ -10,7 +10,7 @@ let logger = require('morgan');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let quotesRouter = require('./routes/quote.route'); // Imports routes
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/auth.routes');
 const portfolioRoutes = require('./routes/portfolio');
 
 var db = require('./db/datasource');
