@@ -64,15 +64,25 @@ exports.login = (req, res, next) => {
       userId: loadedUser._id.toString(),
       // added some properties to make the token unique in each session
       "iat": Date.now(),
-      "exp": new Date(Date.now() + 10*60*1000), // 10 mins
+      "exp": 10*60,  //new Date(Date.now() + 10*60*1000), // 10 mins
       "jti": uuidv4() //"3F2504E0-4F89-11D3-9A0C-0305E82C3301"
     },
     'somesupersecretsecret',
-    { expiresIn: '1h' }
+    // { expiresIn: '1h' }
   );
-  res.status(200).json({ token: token, userId: loadedUser._id.toString() });
 
-  /********************************/
+  // get refresh token
+  // store it on DB
+  let refreshToken = this.createRefreshToken();
+
+  res.status(200).json(
+    { 
+      accessToken: token,
+      userId: loadedUser._id.toString(),
+      refreshToken: refreshToken
+    });
+
+  /********END OF MOCK DATA ************************/
 
 
   // User.findOne({ email: email })
@@ -108,3 +118,25 @@ exports.login = (req, res, next) => {
   //     next(err);
   //   });
 };
+
+exports.createRefreshToken = (req, res) => {
+  let expiredAt = new Date();
+
+  expiredAt.setSeconds(expiredAt.getSeconds() + 24 * 3600 /* 24 hours */);  // config.jwtRefreshExpiration
+
+  console.log("expiredAt: ", expiredAt.getHours + ":" + expiredAt.getMinutes);
+
+  let _token = uuidv4();
+
+  let refreshToken = {
+    token: _token,
+    userId: "user123",//user.id,
+    expiryDate: expiredAt.getTime(),
+  };
+
+  console.log("refreshToken: ", refreshToken);
+
+  return refreshToken.token;
+}
+
+
