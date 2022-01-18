@@ -18,6 +18,25 @@ a given time interval.
 It will use an Eureka client (Nodejs) to publish itself for service registration and discovery. It
 can only be accessed through the gateway (Zuul) which will have authorization to do so.
 
+**App Structure**<br>
+– routes
+ auth.routes.js: POST signup & login
+ user.routes.js: GET users listings, public & protected resources
+
+– middlewares
+ is-auth.js: verify Token, check User roles in database
+
+– controllers
+ auth.controller.js: handle signup & login actions
+ portfolio.controller.js: return protected content
+
+– models for MongoDB Mongoose
+ user.model.js
+ quote.model.js
+ portfolio.model.js
+
+– app.js: import and initialize necessary modules and routes, listen for connections.
+
 **User Interface**<br>
 NOT IMPLEMENTED YET<br>
 It has a simple user interface built using the MVC concept to configure the microservice
