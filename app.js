@@ -13,7 +13,9 @@ let quotesRouter = require('./routes/quote.route'); // Imports routes
 const authRoutes = require('./routes/auth.routes');
 const portfolioRoutes = require('./routes/portfolio');
 
-var db = require('./db/datasource');
+// var db = require('./db/datasource');
+
+let cron = require("node-cron");
 
 //creating Express app
 const express = require('express');
@@ -59,9 +61,22 @@ app.use((error, req, res, next) => {
 //consider exporting the Database class, instanciate it here, and try { instance.connect() } 
 // db._connect();
 
+let testVar = 1;
+
+cron.schedule("*/5 * * * * *", function() {
+  testVar++; 
+  console.log("running a task every 5 second, and the testvar valaue is: ", testVar);
+});
+
+cron.schedule("*/7 * * * * *", function() {
+  console.log("AAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH ");
+});
+
 //Build a server to intercept requests
 const server = http.createServer(app); 
 server.listen(3000);
 console.log("Listening on port 3000...")
+
+console.log("####################################### END ##################################################");
 
 module.exports = app;
